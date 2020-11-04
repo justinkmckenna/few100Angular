@@ -1,0 +1,19 @@
+<h1>Tip Calculator</h1>
+<div class="form-group">
+  <label for="amount">Amount of your bill:</label>
+  <input #billElement id="billAmount" class="form-control" type="number" (keyup)="calculate(billElement.valueAsNumber)">
+</div>
+<div id="tip-buttons" class="btn-group" role="group" aria-label="Basic Example">
+  <button type="button" class="btn btn-secondary" (click)="changeTipPercentage(.1)" [disabled]="tipPercentage === .1">10%</button>
+  <button type="button" class="btn btn-secondary" (click)="changeTipPercentage(.15)" [disabled]="tipPercentage === .15">15%</button>
+  <button type="button" class="btn btn-secondary" (click)="changeTipPercentage(.2)" [disabled]="tipPercentage === .2">20%</button>
+  <button type="button" class="btn btn-secondary" (click)="changeTipPercentage(.25)" [disabled]="tipPercentage === .25">25%</button>
+</div>
+<section>
+  <ul class="list-group">
+    <li class="list-group-item">Amount of Bill: {{billAmount | currency}}</li>
+    <li class="list-group-item">Tip Percentage: {{tipPercentage | percent}}</li>
+    <li class="list-group-item">Tip Amount: {{tipAmount | currency}}</li>
+    <li class="list-group-item">Total To Be Paid: {{totalToBePaid | currency}}</li>
+  </ul>
+</section>
